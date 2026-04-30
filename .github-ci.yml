@@ -1,0 +1,20 @@
+
+image: alpine:latest
+
+stages:
+  - deploy
+
+pages:
+  stage: deploy
+  script:
+    # 1) make a clean top-level public folder
+    - rm -rf public
+    - mkdir -p public
+    # 2) copy the site from Implementierung/public -> ./public
+    - cp -r Implementierung/public/* public/ || true
+  artifacts:
+    paths:
+      - public
+  rules:
+    # run only on the default branch
+    - if: '$CI_COMMIT_BRANCH == "main"'
