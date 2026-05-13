@@ -2,6 +2,16 @@
 
 ---
 
+### Introduction
+
+The goal of this project is to design and develop a software system for managing a fitness studio network called “Fit & Aktiv”. The current system relies on manual planning, which leads to scheduling errors, inefficient time management, and difficulties in handling last-minute changes.
+
+The main objective of this software is to automate and simplify the scheduling process for courses, trainers, rooms, and customers. The system should reduce human errors, improve communication, and ensure efficient resource planning.
+
+The system supports three main user roles: Admin, Trainer, and Customer. It allows course scheduling, booking management, trainer availability tracking, and automatic handling of schedule conflicts.
+
+______
+
 ## Functional Requirements
 
 ### Trainer Management
@@ -103,6 +113,88 @@ User roles:
 
 ⸻
 
+
+### Use Cases
+
+### Actors:
+
+* Admin / Management
+* Trainer
+* Customer (Member)
+* System (Automated Processes)
+
+
+
+### 1. Admin / Management
+
+The Admin is responsible for the overall management of the fitness studio system.
+
+Main responsibilities:
+
+* Create, edit, and delete courses
+* Assign trainers to courses
+* Assign rooms to courses
+* Manage and update weekly schedules
+* Assign substitute trainers in case of absence
+* Plan special events (e.g. company classes, trial sessions)
+* Cancel or reschedule courses when necessary
+* Oversee overall system operations
+
+
+
+### 2. Trainer
+
+The Trainer manages their availability and participates in assigned courses.
+
+Main responsibilities:
+
+* Set and update personal availability
+* View assigned working schedule and courses
+* View schedule changes in real time
+* Accept or reject assigned courses (optional)
+* Take over substitute courses if required
+* Work according to assigned timetable
+
+
+
+### 3. Customer (Member)
+
+Customers use the system to book and manage their course participation.
+
+Main responsibilities:
+
+* Book available courses
+* Cancel bookings
+* View weekly course schedule
+* Receive notifications about changes or cancellations
+* Prevent booking overlapping classes automatically
+* View available courses and schedules
+
+
+
+### 4. System (Automated Functions)
+
+The system handles automatic processes to support scheduling and management.
+
+Main responsibilities:
+
+* Detect and prevent scheduling conflicts (time, trainer, room overlaps)
+* Automatically enforce maximum participant limits per course
+* Suggest substitute trainers in case of absence
+* Automatically assign substitute trainers when possible
+* Cancel courses if no substitute is available
+* Send notifications to users about changes or cancellations
+* Ensure real-time updates of schedule changes
+
+
+
+### Use Case Summary
+
+The system is designed around four main actors: Admin, Trainer, Customer, and System. Each actor has specific responsibilities to ensure efficient scheduling, booking, and resource management. The system focuses on automation, conflict prevention, and real-time updates to reduce manual workload and errors.
+
+  ________
+
+
 ## Data Model
 
 ### Trainer
@@ -147,6 +239,104 @@ User roles:
 
 ⸻
 
+
+
+### System Logic 
+
+* A trainer cannot be assigned to two courses at the same time
+* A course cannot exceed the maximum number of 20 participants
+* If a trainer is unavailable, the system should automatically search for a substitute
+* If no substitute is available, the course must be cancelled
+* Customers cannot book overlapping classes
+* All schedule changes must be updated in real time
+* Trainer availability must always be considered during scheduling
+
+
+
+_________
+
+### Class Diagram (Text Version)
+
+### Classes:
+
+### Trainer
+
+* trainerId
+* name
+* email
+* skills
+* availability
+
+### Customer
+
+* customerId
+* name
+* email
+* bookedClasses
+
+### Course
+
+* courseId
+* title
+* time
+* room
+* maxParticipants
+* trainerId
+
+### Booking
+
+* bookingId
+* customerId
+* courseId
+
+### Room
+
+* roomId
+* name
+* capacity
+
+
+
+### Relationships:
+
+* Trainer → Course (1 to many)
+* Course → Booking (1 to many)
+* Customer → Booking (1 to many)
+* Course → Room (many courses per room)
+
+
+
+_________
+
+### User Interface Design
+
+The system provides a simple and intuitive web interface designed for non-technical users.
+
+* A login page allows users to access the system based on their role.
+* An admin dashboard provides full control over courses, trainers, and scheduling.
+* A trainer dashboard displays assigned courses and availability settings.
+* A customer dashboard allows course booking and schedule viewing.
+* A calendar view shows weekly schedules for rooms, trainers, and courses.
+* Booking actions are designed to be completed in a few simple clicks.
+
+
+_________
+
+
+## System Architecture / Tech Stack
+
+* Next.js → Website / Web App
+* Firebase Auth → Login & authentication
+* Firestore → Real-time database
+* Cloud Functions → Auto-assignment and automation logic
+* Firebase Hosting / Vercel → Deployment
+* React Native / Expo → Mobile App (optional)
+
+
+_________
+
+
+
 ## System Testing
 
 ### Trainer Simulation
@@ -173,12 +363,11 @@ Simulate trainer sick leave
 
 ⸻
 
-## System Architecture / Tech Stack
+### Conclusion
 
-* Next.js → Website / Web App
-* Firebase Auth → Login & authentication
-* Firestore → Real-time database
-* Cloud Functions → Auto-assignment and automation logic
-* Firebase Hosting / Vercel → Deployment
-* React Native / Expo → Mobile App (optional)
+This system provides an automated solution for managing fitness studio operations. It reduces manual planning effort, prevents scheduling conflicts, and improves communication between trainers, customers, and administration. The design focuses on usability, scalability, and automation to ensure efficient management of a growing fitness business.
+_______
+
+
+  
 
