@@ -2,9 +2,9 @@
 
 ---
 
-##Functional Requirements
+## Functional Requirements
 
-###Trainer Management
+### Trainer Management
 
 Track Trainers
 
@@ -27,11 +27,11 @@ Scheduling
 * Preferred working time (optional)
     * Trainers can block specific days they do not want to work
 
-###Overview
+### Overview
 
 * 1-week schedule overview
 
-###Booking System
+### Booking System
 
 Customer Class Booking
 
@@ -41,23 +41,23 @@ Customer Class Booking
 * Bookings can be cancelled
 * Maximum 20 participants per class
 
-Notifications
+### Notifications
 
 * Notify customers when a class is cancelled or rescheduled
 * Notification via email
 * Real-time notifications (optional)
 
-###AI Assistant (Optional)
+### AI Assistant (Optional)
 
 * Small AI assistant for customers
 * Can guide customers and answer questions or problems
 
-###Calendar
+### Calendar
 
 * Small calendar for each room and trainer
 * Display reservations and work schedules
 
-###Login System
+### Login System
 
 User roles:
 
@@ -67,45 +67,45 @@ User roles:
 
 ⸻
 
-##Non-Functional Requirements
+## Non-Functional Requirements
 
-###Performance
+### Performance
 
 * Handle 300+ customers
 * Manage 100+ employees/trainers
 
-###Scheduling Constraints
+### Scheduling Constraints
 
 * Enforce maximum working hours per week
 * No overlapping shifts
 * Skill matching (trainer → class type)
 
-###Security
+### Security
 
 * Secure login using passwords for all users
 * Customer data shall be securely stored
 
-###Usability
+### Usability
 
 * The system shall be easy to use for non-technical users
 
-###Availability
+### Availability
 
 * The system shall be available 24/7
 
-###Maintainability
+### Maintainability
 
 * The code shall be modular and easy to maintain
 
-###Website
+### Website
 
 * Simple website with login credentials
 
 ⸻
 
-##Data Model
+## Data Model
 
-###Trainer
+### Trainer
 
 * trainerId
 * name
@@ -115,7 +115,7 @@ User roles:
 * workingHours
 * availability
 
-###Customer
+### Customer
 
 * customerId
 * name
@@ -123,7 +123,7 @@ User roles:
 * phoneNumber
 * bookedClasses
 
-###Course
+### Course
 
 * courseId
 * trainerId
@@ -134,7 +134,7 @@ User roles:
 * endDate
 * maxParticipants
 
-###Relationships
+### Relationships
 
 * One trainer can teach multiple courses
 * Each course can only have one assigned trainer
@@ -147,16 +147,16 @@ User roles:
 
 ⸻
 
-##System Testing
+## System Testing
 
-###Trainer Simulation
+### Trainer Simulation
 
 Simulate auto assignment for 101 trainers
 
 * Verify working hour calculation
 * Verify preferred working time constraints
 
-###Customer Simulation
+### Customer Simulation
 
 Simulate booking for 301 customers
 
@@ -164,7 +164,7 @@ Simulate booking for 301 customers
 * Maximum 20 people per class
 * Ensure customers cannot book overlapping classes
 
-###Substitution Test
+### Substitution Test
 
 Simulate trainer sick leave
 
@@ -173,7 +173,7 @@ Simulate trainer sick leave
 
 ⸻
 
-##System Architecture / Tech Stack
+## System Architecture / Tech Stack
 
 * Next.js → Website / Web App
 * Firebase Auth → Login & authentication
