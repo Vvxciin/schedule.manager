@@ -1,82 +1,184 @@
 # Software Project Plan
 
-## Functional Requirements
-
-### Trainer Management
-- Track trainers
-  - Location
-  - Timetable
-
-### Working Hours
-- Track working hours
-  - Total hours worked
-  - Clock-in system (optional)
-  - Include 1 hour travel time
-
-### Scheduling
-- Automatically assign trainers at the beginning of the week
-- Automatically assign substitutes (e.g. sick leave)
-- Shift swapping (optional)
-  - By request if dissatisfied with schedule
-- Preferred working time (optional)
-  - Trainers can block specific days
-
-### Overview
-- 1-week overview of schedule
-
-### Booking System
-- Class booking for customers
-  - Unlimited bookings
-  - Cannot book overlapping classes
-  - Can be cancelled
-  - Max 20 people per class
-
-### Notifications
-- Notify when class is cancelled/rescheduled
-  - Via app and/or email
-
 ---
 
-## Non-Functional Requirements
-- Handle 300+ customers
-- Manage 100+ employees
-- Enforce max hours per week
-- No overlapping shifts
-- Skill matching (trainer → class type)
-- Real-time notifications
+##Functional Requirements
 
----
+###Trainer Management
 
-## User Roles
-- Admin
-- Trainers
-- Customers
+Track Trainers
 
----
+* Track trainer location (where trainers are)
+* View trainer timetable/schedule
+* Track trainer working hours
 
-## System Testing
+Working Hours
 
-### Trainer Simulation
-- Simulate auto assignment for 101 trainers
-  - Verify working hours calculation
-  - Verify preferred time constraints
+* Calculate total worked hours
+* Track whether trainers have clocked in (optional)
+* Include 1 hour travel time in working hour calculation
 
-### Customer Simulation
-- Simulate booking for 301 customers
-  - Check class overflow (max 20 per class)
-  - Ensure no double bookings
+Scheduling
 
-### Substitution Test
-- Simulate sick trainer
-  - Check auto substitution
-  - Verify customer notifications
+* Automatically assign trainers at the beginning of each week
+* Automatically assign substitutes when a trainer is sick
+* Shift swapping (optional)
+    * Trainers can request schedule changes if dissatisfied with assigned shifts
+* Preferred working time (optional)
+    * Trainers can block specific days they do not want to work
 
----
+###Overview
 
-## Tech Stack
-- Next.js (Web App)
-- Firebase Auth (Authentication)
-- Firestore (Database)
-- Cloud Functions (Automation logic)
-- Firebase Hosting / Vercel (Deployment)
-- React Native / Expo (Mobile App - optional)
+* 1-week schedule overview
+
+###Booking System
+
+Customer Class Booking
+
+* Customers can book classes
+* Unlimited bookings allowed
+* Customers cannot book 2 classes at the same time
+* Bookings can be cancelled
+* Maximum 20 participants per class
+
+Notifications
+
+* Notify customers when a class is cancelled or rescheduled
+* Notification via email
+* Real-time notifications (optional)
+
+###AI Assistant (Optional)
+
+* Small AI assistant for customers
+* Can guide customers and answer questions or problems
+
+###Calendar
+
+* Small calendar for each room and trainer
+* Display reservations and work schedules
+
+###Login System
+
+User roles:
+
+* Admin
+* Trainers
+* Customers
+
+⸻
+
+##Non-Functional Requirements
+
+###Performance
+
+* Handle 300+ customers
+* Manage 100+ employees/trainers
+
+###Scheduling Constraints
+
+* Enforce maximum working hours per week
+* No overlapping shifts
+* Skill matching (trainer → class type)
+
+###Security
+
+* Secure login using passwords for all users
+* Customer data shall be securely stored
+
+###Usability
+
+* The system shall be easy to use for non-technical users
+
+###Availability
+
+* The system shall be available 24/7
+
+###Maintainability
+
+* The code shall be modular and easy to maintain
+
+###Website
+
+* Simple website with login credentials
+
+⸻
+
+##Data Model
+
+###Trainer
+
+* trainerId
+* name
+* email
+* phoneNumber
+* skills
+* workingHours
+* availability
+
+###Customer
+
+* customerId
+* name
+* email
+* phoneNumber
+* bookedClasses
+
+###Course
+
+* courseId
+* trainerId
+* title
+* roomNumber
+* classTime
+* startDate
+* endDate
+* maxParticipants
+
+###Relationships
+
+* One trainer can teach multiple courses
+* Each course can only have one assigned trainer
+* One customer can create multiple bookings
+* Each booking belongs to one customer
+* One course can have multiple bookings
+* Each booking belongs to one course
+* One room can host multiple courses
+* Each course takes place in one room
+
+⸻
+
+##System Testing
+
+###Trainer Simulation
+
+Simulate auto assignment for 101 trainers
+
+* Verify working hour calculation
+* Verify preferred working time constraints
+
+###Customer Simulation
+
+Simulate booking for 301 customers
+
+* Check class overflow
+* Maximum 20 people per class
+* Ensure customers cannot book overlapping classes
+
+###Substitution Test
+
+Simulate trainer sick leave
+
+* Check if automatic substitution works
+* Verify customer notifications are sent
+
+⸻
+
+##System Architecture / Tech Stack
+
+* Next.js → Website / Web App
+* Firebase Auth → Login & authentication
+* Firestore → Real-time database
+* Cloud Functions → Auto-assignment and automation logic
+* Firebase Hosting / Vercel → Deployment
+* React Native / Expo → Mobile App (optional)
+
