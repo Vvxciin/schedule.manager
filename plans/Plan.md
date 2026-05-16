@@ -81,7 +81,7 @@ User roles:
 
 ### Performance
 
-* Handle 300+ customers
+* Handle 1000 customers at least
 * Manage 100+ employees/trainers
 
 ### Scheduling Constraints
