@@ -79,7 +79,6 @@ User roles:
 
 * Enforce maximum working hours per week
 * No overlapping shifts
-* Skill matching (trainer → class type)
 
 ### Security
 
