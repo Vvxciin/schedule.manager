@@ -79,7 +79,7 @@ User roles:
 
 * Enforce maximum working hours per week
 * No overlapping shifts
-* Include travel time between studios in working hour calculation
+* Include 1 hour travel time between studios in working hour calculation
 * Trainers may work in multiple studios
 * Automatic reassignment when schedule changes occur
 
