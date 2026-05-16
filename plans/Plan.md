@@ -25,17 +25,12 @@ Track Trainers
 Working Hours
 
 * Calculate total worked hours
-* Track whether trainers have clocked in (optional)
 * Include 1 hour travel time in working hour calculation
 
 Scheduling
 
 * Automatically assign trainers at the beginning of each week
 * Automatically assign substitutes when a trainer is sick
-* Shift swapping (optional)
-    * Trainers can request schedule changes if dissatisfied with assigned shifts
-* Preferred working time (optional)
-    * Trainers can block specific days they do not want to work
 
 ### Overview
 
