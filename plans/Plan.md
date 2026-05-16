@@ -57,10 +57,6 @@ Customer Class Booking
 * Notification via email
 * Real-time notifications (optional)
 
-### AI Assistant (Optional)
-
-* Small AI assistant for customers
-* Can guide customers and answer questions or problems
 
 ### Calendar
 
