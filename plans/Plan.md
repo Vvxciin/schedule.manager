@@ -306,6 +306,37 @@ _________
 
 
 
+
+### Sequence Diagram – Course Booking Process (Text Version)
+
+### Actors :
+
+* Customer
+* Web Interface
+* Booking System
+* Database
+* Notification System
+
+
+
+### Process Flow:
+
+1. The customer opens the booking page.
+2. The web interface requests available courses from the booking system.
+3. The booking system retrieves course data from the database.
+4. The available courses are displayed to the customer.
+5. The customer selects a course and submits the booking request.
+6. The booking system checks:
+    * course capacity
+    * overlapping bookings
+    * course availability
+1. If validation is successful, the booking is stored in the database.
+2. The system updates the participant count.
+3. A confirmation notification is sent to the customer.
+4. The customer receives the booking confirmation.
+
+
+
 _________
 
 ### User Interface Design
